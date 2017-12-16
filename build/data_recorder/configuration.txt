@@ -1,0 +1,136 @@
+#ePro Data Recorder configuration file
+
+#Database config
+
+MySQLServer = tcp://127.0.0.1:3306
+Username = malaka
+Password = Enetlk!234
+DatabaseName = c_epro_binary
+TableName = powerpro
+PrimaryKeyColumnNameInMainTable = record_no
+DeviceIDColumnNameInMainTable = code
+RecordCounterColumnNameInMainTable = sdCounter
+DateTimeColumnNameInMainTable = date_time
+
+###########################################
+
+#Main data table structure --> better to put these two configs in a separate file
+
+#database table column names, types and the corresponding positions (zero based) in device records
+
+DBTableColumnNames = sdCounter,code,date_time,ph1_active_energy,ph2_active_energy,ph3_active_energy,ph1_reactive_energy,ph2_reactive_energy,ph3_reactive_energy,ph1_apperant_energy,ph2_apperant_energy,ph3_apperant_energy,ph1_active_power,ph2_active_power,ph3_active_power,ph1_reactive_power,ph2_reactive_power,ph3_reactive_power,ph1_apperant_power,ph2_apperant_power,ph3_apperant_power,ph1_current,ph2_current,ph3_current,ph1_volt,ph2_volt,ph3_volt,ph1_frequency,ph2_frequency,ph3_frequency,ph1_pf,ph2_pf,ph3_pf,sender_ip,rcv_time,Dvc_Sts,Sgnl_strn
+
+DBTableColumnTypes = int,int,datetime,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,varchar,datetime,int,int
+
+DeviceRecordPositions = 0,2,1,15,16,17,12,13,14,18,19,20,6,7,8,3,4,5,9,10,11,21,22,23,24,25,26,30,30,30,27,28,29,33,34,32,31
+
+###########################################
+
+#Configs related to binary-encoded data
+
+DataRecordType = int,date_time,int,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,char,char,end,end
+
+BinaryDataSize = 128
+
+###########################################
+
+#Caching parameters
+
+#no. of records to cache before writing
+CacheWriteThreshold = 5
+
+#maximum allowed no. of records in cache (when limit is reached, cache is flushed to file and cleared)
+CacheSizeHardLimit = 100
+
+###########################################
+
+#Information for loading device IDs and verifying records
+
+#positions are zero based
+
+DevicesTableName = device
+DeviceIDColumnName = DeviceId
+
+DeviceIDRecordPosition = 2
+CounterRecordPosition = 0
+
+###########################################
+
+#Configs for null record handling
+
+NullRecordsTableName = null_records
+NullRecordsTablePrimaryKeyColumn = NullRecID
+NullRecDeviceIDColumn = DeviceID
+NullRecCounterColumn = SDCounter
+NullRecInsertedPrimaryKeyColumn = InsertedRecordPrimaryKey
+NullRecRequestCountColumn = RequestCount
+
+#maximum no. of out of order records kept for a device (when limit is reached, data is moved to CacheWriteThreshold with missing records written as NULL)
+NullWriteThreshold = 30
+
+#Upper limit of no. of null records to load to the in-memory map (per device)
+MaxNullRecordCountPerDevice = 100
+
+#no. of records to cache in update cache before writing
+#5 after testing
+UpdateCacheThreshold = 10
+
+#no. of null entries cached to be deleted
+NullEntryDeleteCacheThreshold = 10
+
+#no. of times to request for a null record before it is deleted
+MaxNullRequestCount = 40
+
+###########################################
+
+#File based storage config
+
+FilenamePrefix = eProDataSecondary
+
+
+###########################################
+
+#Logging
+
+#log levels: 1=error, 2=warning, 3=info, 4=debug, 5=trace (recommended=3)
+LogLevel = 5
+
+LogFilenamePrefix = epro_data_recorder_log
+
+#rotation size in MB (new log file will be created when size reaches this amount)
+LogFileRotationSize = 10
+
+#maximum number of log files (previous ones will be replaced as new ones are created)
+MaxLogFileCount = 10
+
+###########################################
+
+#Socket communication config
+
+ServicePort = 5001
+
+#buffer size is in bytes
+ReceiveBufferSize = 1024
+
+#maximum no. of characters per device to keep in buffer before a complete message can be formed (i.e. by receviving a msg termination character)
+#when limit is reached, the buffer is cleared
+BufferedMessageHardLimit = 8192
+
+RecordTerminationCharacter = \n
+
+###########################################
+
+#Timer intervals (seconds)
+
+HeartbeatTimerInterval = 180
+CacheFlushTimerInterval = 300
+DeviceLoadTimerInterval = 15
+NullRecordGenerationTimerInterval = 86400
+FDCheckTimerInterval = 800
+
+DeviceInactiveTimeThreshold = 720
+
+###########################################
+
+ForwardIP = 127.0.0.1
+ForwardPort = 8000

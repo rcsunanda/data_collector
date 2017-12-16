@@ -1,0 +1,58 @@
+#ePro Dummy device configuration file
+
+#data structure --> better to put these two configs in a separate file
+
+DBTableColumnNames = sdCounter,code,date_time,ph1_active_energy,ph2_active_energy,ph3_active_energy,ph1_reactive_energy,ph2_reactive_energy,ph3_reactive_energy,ph1_apperant_energy,ph2_apperant_energy,ph3_apperant_energy,ph1_active_power,ph2_active_power,ph3_active_power,ph1_reactive_power,ph2_reactive_power,ph3_reactive_power,ph1_apperant_power,ph2_apperant_power,ph3_apperant_power,ph1_current,ph2_current,ph3_current,ph1_volt,ph2_volt,ph3_volt,ph1_frequency,ph2_frequency,ph3_frequency,ph1_pf,ph2_pf,ph3_pf,sender_ip,rcv_time,Dvc_Sts,Sgnl_strn
+
+DBTableColumnTypes = int,int,datetime,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,varchar,datetime,int,int
+
+RecordTerminationCharacter = \n\r
+
+#Socket communication configs
+
+ServiceIP = localhost
+ServicePort = 5000
+
+#Message profile
+
+#1 second default interval
+MessageInterval_us = 1000000
+
+#Messge structure
+
+#positions are zero based
+
+DummyDeviceID = 26000;
+DeviceIDRecordPosition = 2
+CounterRecordPosition = 0
+
+#Message sequence to pump
+
+MessageSequence = 86471, 86472, 86473, 86474, 86475, 86476, 86479, 86480, 86481
+
+#Field types of dummy record
+
+CustomMessageToSend = 50,2015/12/07 14:17:37,4294967295, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN,0.00,0,12,ffffff67,ffd842e8,ffffff78,ffd94536,ffffff51,ffd8aa6f,ffd7f4b9,ffffff79,ffd7b5ec,
+
+RecordFieldTypes = int,datetime,int,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,char,char,int,int,int,int,int,int,int,int,int
+
+#Fake required configs
+MySQLServer = tcp://127.0.0.1:3306
+Username = root
+Password = root
+DatabaseName = test
+TableName = powerpro
+PrimaryKeyColumnNameInMainTable = record_no
+DeviceIDColumnNameInMainTable = code
+RecordCounterColumnNameInMainTable = sdCounter
+DateTimeColumnNameInMainTable = date_time
+DevicesTableName = device
+DeviceIDColumnName = DeviceId
+DeviceRecordPositions = 0,2,1,15,16,17,12,13,14,18,19,20,6,7,8,3,4,5,9,10,11,21,22,23,24,25,26,30,30,30,27,28,29,42,43,31,32
+NullRecordsTableName = null_records
+NullRecDeviceIDColumn = DeviceID
+NullRecCounterColumn = SDCounter
+NullRecPrimaryKeyColumn = InsertedRecordPrimaryKey
+NullRecRequestCountColumn = RequestCount
+NullRecordsTablePrimaryKeyColumn = NullRecID
+NullRecInsertedPrimaryKeyColumn = InsertedRecordPrimaryKey

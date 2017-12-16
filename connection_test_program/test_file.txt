@@ -1,0 +1,39 @@
+Feb 07 09:55:39.139908 Values used; remote IP: 162.144.103.242, remote port: 5001, attempt count: 10
+Feb 07 09:55:39.140067 Starting connection_test_program
+Feb 07 09:55:39.140101 ------------------------------------------------
+Feb 07 09:55:39.140128 attempt number: 1 out of 10
+Feb 07 09:55:39.601842 attempt result: successful
+Feb 07 09:55:40.602647 ------------------------------------------------
+Feb 07 09:55:40.603826 attempt number: 2 out of 10
+Feb 07 09:55:41.109775 attempt result: successful
+Feb 07 09:55:42.110735 ------------------------------------------------
+Feb 07 09:55:42.111995 attempt number: 3 out of 10
+Feb 07 09:55:42.621679 attempt result: successful
+Feb 07 09:55:43.622594 ------------------------------------------------
+Feb 07 09:55:43.623259 attempt number: 4 out of 10
+Feb 07 09:55:44.142120 attempt result: successful
+Feb 07 09:55:45.142782 ------------------------------------------------
+Feb 07 09:55:45.143928 attempt number: 5 out of 10
+Feb 07 09:55:45.640284 attempt result: successful
+Feb 07 09:55:46.641700 ------------------------------------------------
+Feb 07 09:55:46.642714 attempt number: 6 out of 10
+Feb 07 09:55:47.712370 attempt result: successful
+Feb 07 09:55:48.714880 ------------------------------------------------
+Feb 07 09:55:48.715268 attempt number: 7 out of 10
+Feb 07 09:55:49.052697 attempt result: successful
+Feb 07 09:55:50.053909 ------------------------------------------------
+Feb 07 09:55:50.054102 attempt number: 8 out of 10
+Feb 07 09:55:50.384336 attempt result: successful
+Feb 07 09:55:51.384994 ------------------------------------------------
+Feb 07 09:55:51.385242 attempt number: 9 out of 10
+Feb 07 09:55:51.712288 attempt result: successful
+Feb 07 09:55:52.713026 ------------------------------------------------
+Feb 07 09:55:52.713213 attempt number: 10 out of 10
+Feb 07 09:55:53.054075 attempt result: successful
+Feb 07 09:55:54.055690 
+Feb 07 09:55:54.055869 ***********************************************
+Feb 07 09:55:54.055945 Total number of attempts: 10
+Feb 07 09:55:54.056009 Successful number of attempts: 10
+Feb 07 09:55:54.056072 Successful percentage: 100%
+Feb 07 09:55:54.056134 Failed number of attempts: 0
+Feb 07 09:55:54.056195 Failed percentage: 0%
